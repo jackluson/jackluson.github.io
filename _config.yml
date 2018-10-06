@@ -1,2 +1,2 @@
-	name: JackLuSo, XingShuai Cop
-  permalink: /blog/:year-:month-:day/:title
+name: JackLuSo, XingShuai Cop
+permalink: /blog/:year:month-:day/:title
