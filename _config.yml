@@ -1,26 +1,32 @@
 #-----------------------#
 #----my main configs----#
 #-----------------------#
-title: Lux的个人博客
-email: luxuemin2108@gmail.com
-description: Lux的个人博客---时间是最好的朋友,在合适的时间做合适的事
-baseurl: "/"
-url: "https://jackluson.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-timezone: Asia/Guangzhou
+title                   : Lux的个人博客
+email                   : luxuemin2108@gmail.com
+description             : Lux的个人博客---时间是最好的朋友,在合适的时间做合适的事
+baseurl                 : "/"
+url                     : "https://jackluson.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+# timezone: Asia/Guangzhou
 
 # SNS settings
-github_username:  jackluson
-zhihu_username: "Luxm"
-juejin_username: "Luxm"
-twitter_username: ""
-facebook_username: ""
+github_username         :  jackluson
+zhihu_username          : "Luxm"
+juejin_username         : "Luxm"
+twitter_username        : ""
+facebook_username       : ""
 # Build settings
-markdown: kramdown
-theme: minima
+markdown                : kramdown
+theme                   : null
+
+search                  : true
+
 plugins:
-  - rouge
-  - jekyll-feed
   - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
@@ -32,3 +38,6 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+# head_scripts:
+#   - https://code.jquery.com/jquery-3.3.1.min.js
+#   - /assets/js/your-custom-head-script.js
