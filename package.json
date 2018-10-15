@@ -8,8 +8,8 @@
     "add-banner": "node banner.js",
     "watch:js": "onchange \"assets/js/**/*.js\" -e \"assets/js/main.min.js\" -- npm run build:js",
     "build:js": "npm run uglify",
-    "refresh": "gulp refresh",
-    "dev": "concurrently \"bundle exec jekyll server --port 3000 --watch\" \"npm run refresh\" \"npm run watch:js\""
+    "server": "cross-env NODE_ENV=development gulp server",
+    "dev": "concurrently \"bundle exec jekyll build --watch --limit_posts 1\" \"npm run server\""
   },
   "keywords": [
     "gulp",
@@ -21,6 +21,8 @@
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.23.6",
+    "concurrently": "^4.0.1",
+    "cross-env": "^5.2.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-babel": "^7.0.1",
@@ -40,9 +42,7 @@
     "node-sass": "^4.9.3",
     "npm-run-all": "^1.7.0",
     "onchange": "^5.0.2",
+    "run-sequence": "^2.2.1",
     "uglify-js": "^2.8.29"
-  },
-  "dependencies": {
-    "gulp-refresh": "^1.1.0"
   }
 }

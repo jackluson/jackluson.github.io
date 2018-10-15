@@ -1,6 +1,3 @@
-// ---
-// published: false
-// ---
 
 ;(function( $ ){
   $.fn.fitVids = function( options ) {
@@ -20,7 +17,6 @@
     if ( options ) {
       $.extend( settings, options );
     }
-
     return this.each(function(){
       var selectors = [
         'iframe[src*="player.vimeo.com"]',

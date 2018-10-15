@@ -1,11 +1,8 @@
-console.log('')
 $(document).ready(function() {
-  // Sticky footer
   var bumpIt = function() {
       $("body").css("margin-bottom", $(".page__footer").outerHeight(true));
     },
     didResize = false;
-
   bumpIt();
   $(window).resize(function() {
     didResize = true;
@@ -19,7 +16,6 @@ $(document).ready(function() {
 
   // FitVids init
   $("#main").fitVids();
-
   // Sticky sidebar
   var stickySideBar = function() {
     var show =

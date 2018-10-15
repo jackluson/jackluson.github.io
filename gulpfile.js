@@ -1,29 +1,23 @@
 /* eslint-disable */
 var gulp = require('gulp')
-var config = require('./gulpfile.config.js');
-//var swig = require('gulp-swig')
-
- var imagemin = require("gulp-imagemin"); //压缩图片
-
-//var jade = require('gulp-jade'); // jade
+var config = require('./gulpfile.config.js')
+// var swig = require('gulp-swig')
+console.log(process.env.NODE_ENV)
 
 var jshint = require('gulp-jshint'); // 检查js
 var eslint = require('gulp-eslint'); // 格式检查
-var babel = require('gulp-babel');  //es6 转 es5
+var babel = require('gulp-babel'); // es6 转 es5
 var uglify = require('gulp-uglify'); // 创建js混淆压缩 模块md
 
 var minifycss = require('gulp-minify-css'); // 创建 css混淆压缩模块
 var scss = require('gulp-sass'); // 创建scss监听与生成css
-
 var gconcat = require('gulp-concat'); // 创建 文件合并模块
 
 var rename = require('gulp-rename'); // 重命名文件
 var clean = require('gulp-clean'); // 清除文件
 
-var cache = require('gulp-cache'); // 图片快取，只有更改过得图片会进行压缩
-
+var runSequence = require('run-sequence'); // 顺序执行
 var browserSync = require('browser-sync').create(); // 浏览器刷新
-
 // 默认操作
 gulp.task('default', function () {
   console.log('run gulp')
@@ -33,44 +27,30 @@ gulp.task('browser-sync', function () {
   var files = [
     '_site/**/*.html',
     '_site/**/*.css',
-    '_site/**/main.min.js',
-    '_site/**/lunr.min.js'
+    '_site/**/*.js'
   ]
   browserSync.init({
     server: {
-      baseDir: config.public
-    }
+      baseDir: config.publish
+    },
+    open: false
   })
-  gulp.watch(files).on('change', browserSync.reload);
+  gulp.watch(files).on('change', browserSync.reload)
 })
 // 刷新浏览器
-gulp.task('reload',function(){
+gulp.task('reload', function () {
   browserSync.stream()
 })
-// gulp.task('swig', function () {
-//   gulp.src('public/**/*.jade')
-//     .pipe(jade({
-//       pretty: true
-//     }))
-//     .pipe(swig({
-//       defaults: { cache: false }
-//     }))
-//     .pipe(gulp.dest('./public'))
-//     .pipe(gulp.dest('./app/view'))
-// })
-
 // 交互
 gulp.task('scripts', function () {
-  return gulp.src([config.src.scripts,'!node_modules/**'])
+  return gulp.src(config.concatList)
     .pipe(eslint.format())
-  	.pipe(babel({
-            presets: ['env']
-     }))
+    .pipe(babel({
+      presets: ['env']
+    }))
     .pipe(jshint.reporter('default'))
-    // .pipe(gconcat(config.main))
-    .pipe(rename({ suffix: '.min' }))
-    // .pipe(uglify())
-    .pipe(gulp.dest(config.dest.scripts))
+    .pipe(gconcat('all.js'))
+    .pipe(rename({ suffix: '.min' })).pipe(uglify()).pipe(gulp.dest(config.dest.scripts))
 })
 // 图片
 gulp.task('images', function () {
@@ -82,7 +62,7 @@ gulp.task('images', function () {
 // 清空图片、样式、js
 
 gulp.task('clean', function () {
-  gulp.src([config.dest.styles, config.dest.scripts, config.dest.images], { read: false })
+  gulp.src([config.dest_url], { read: false })
     .pipe(clean())
 })
 
@@ -101,8 +81,8 @@ gulp.task('watch', function () {
               return console.log(err)
           }*/
 
-  //gulp.watch('public/**/*.jade', ['swig'])
-   gulp.watch(config.src.html, ['reload'])
+  // gulp.watch('public/**/*.jade', ['swig'])
+  gulp.watch(config.src.html, ['reload'])
   // 监听css
   // gulp.watch(config.src.styles,['styles'])
 
@@ -115,4 +95,6 @@ gulp.task('watch', function () {
 //   })
 })
 
-gulp.task('server', ['browser-sync'])
+gulp.task('server', () => {
+  return runSequence(['browser-sync'])
+})

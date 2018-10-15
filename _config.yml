@@ -27,6 +27,18 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+# Reading Files
+exclude:
+  - package.json
+  - package-lock
+  - README
+  - Gemfile
+  - node_modules
+  - gulpfile.js
+  - banner
+  - config
+  - Gemfile.lock
+  - gulpfile.config
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
@@ -41,3 +53,4 @@ plugins:
 # head_scripts:
 #   - https://code.jquery.com/jquery-3.3.1.min.js
 #   - /assets/js/your-custom-head-script.js
+incremental: true

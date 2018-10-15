@@ -1,7 +1,4 @@
-// ---
-// published: false
-// ---
-
+console.log("--阿凡达--");
 $(document).ready(function() {
   var $btn = $("nav.greedy-nav .greedy-nav__toggle");
   var $vlinks = $("nav.greedy-nav .visible-links");
@@ -49,7 +46,6 @@ $(document).ready(function() {
       $btn.removeClass("hidden");
     }
   }
-
   // Window listeners
   $(window).resize(function() {
     check();
@@ -60,7 +56,6 @@ $(document).ready(function() {
     $(this).toggleClass("close");
     clearTimeout(timer);
   });
-
   $hlinks
     .on("mouseleave", function() {
       // Mouse has left, start the timer
@@ -73,6 +68,5 @@ $(document).ready(function() {
       // Mouse is back, cancel the timer
       clearTimeout(timer);
     });
-
   check();
 });
