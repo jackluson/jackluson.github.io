@@ -6,7 +6,7 @@ email: luxuemin2108@gmail.com
 description: Lux的个人博客---时间是最好的朋友,在合适的时间做合适的事
 baseurl: "/"
 url: "https://jackluson.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-timezone: Asia/Guangzhou
+# timezone: Asia/Guangzhou
 
 # SNS settings
 github_username:  jackluson
@@ -16,7 +16,7 @@ twitter_username: ""
 facebook_username: ""
 # Build settings
 markdown: kramdown
-theme: minima
+theme: null
 plugins:
   - rouge
   - jekyll-feed
