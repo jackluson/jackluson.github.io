@@ -4,8 +4,10 @@ main:
     url: /
     description: home
   - title: "Tags"
-    url: /tags/
+    url: /tags.html
   - title: "Archives"
     url: /posts/
   - title: "About"
     url: /about/
+  - title: "Categories"
+    url: /categories.html

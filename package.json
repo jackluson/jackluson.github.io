@@ -9,7 +9,7 @@
     "watch:js": "onchange \"assets/js/**/*.js\" -e \"assets/js/main.min.js\" -- npm run build:js",
     "build:js": "npm run uglify",
     "server": "cross-env NODE_ENV=development gulp server",
-    "dev": "concurrently \"bundle exec jekyll build --watch --limit_posts 1\" \"npm run server\""
+    "dev": "concurrently \"npm run server\" \"bundle exec jekyll server --watch\""
   },
   "keywords": [
     "gulp",
@@ -41,7 +41,6 @@
     "jshint": "^2.9.5",
     "node-sass": "^4.9.3",
     "npm-run-all": "^1.7.0",
-    "onchange": "^5.0.2",
     "run-sequence": "^2.2.1",
     "uglify-js": "^2.8.29"
   }

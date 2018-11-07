@@ -1,4 +1,3 @@
-console.log("--阿凡达--");
 $(document).ready(function() {
   var $btn = $("nav.greedy-nav .greedy-nav__toggle");
   var $vlinks = $("nav.greedy-nav .visible-links");
@@ -13,24 +12,25 @@ $(document).ready(function() {
     numOfItems += 1;
     breakWidths.push(totalSpace);
   });
+  console.log('breakWidths',breakWidths)
   var availableSpace, numOfVisibleItems, requiredSpace, timer;
 
   function check() {
     // Get instant state
-    availableSpace = $vlinks.width() - $btn.width();
+    availableSpace = $vlinks.width() - $btn.width() - 150;
     numOfVisibleItems = $vlinks.children().length;
     requiredSpace = breakWidths[numOfVisibleItems - 1];
-
-    // There is not enough space
     if (requiredSpace > availableSpace) {
       $vlinks
         .children()
         .last()
         .prependTo($hlinks);
       numOfVisibleItems -= 1;
+      console.log('comein')
       check();
       // There is more than enough space
-    } else if (availableSpace > breakWidths[numOfVisibleItems]) {
+    } else if (!!(availableSpace > breakWidths[numOfVisibleItems])) {
+      console.log('width', breakWidths[numOfVisibleItems])
       $hlinks
         .children()
         .first()
@@ -48,11 +48,12 @@ $(document).ready(function() {
   }
   // Window listeners
   $(window).resize(function() {
+    console.log('resize')
     check();
   });
 
   $btn.on("click", function() {
-    $hlinks.toggleClass("hidden");
+    $hlinks.toggleClass("fold");
     $(this).toggleClass("close");
     clearTimeout(timer);
   });
@@ -60,7 +61,7 @@ $(document).ready(function() {
     .on("mouseleave", function() {
       // Mouse has left, start the timer
       timer = setTimeout(function() {
-        $hlinks.addClass("hidden");
+        $hlinks.addClass("fold");
         $btn.toggleClass("close");
       }, closingTime);
     })

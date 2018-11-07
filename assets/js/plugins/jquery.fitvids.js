@@ -13,7 +13,6 @@
       div.innerHTML = '<p>x</p><style id="fit-vids-style">' + css + '</style>';
       head.appendChild(div.childNodes[1]);
     }
-
     if ( options ) {
       $.extend( settings, options );
     }
