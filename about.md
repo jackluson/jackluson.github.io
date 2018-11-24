@@ -3,11 +3,7 @@ title: About
 permalink: /about/
 ---
 
-<<<<<<< HEAD
-This is the asekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
-=======
 This is the eekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
->>>>>>> master
 
 You can find the source code for Minima at GitHub:
 [jekyll][jekyll-organization] /
