@@ -9,18 +9,34 @@ url: "https://jackluson.github.io" # the base hostname & protocol for your site,
 # timezone: Asia/Guangzhou
 
 # SNS settings
-github_username:  jackluson
-zhihu_username: "Luxm"
-juejin_username: "Luxm"
-twitter_username: ""
-facebook_username: ""
+github_username         :  jackluson
+zhihu_username          : "Luxm"
+juejin_username         : "Luxm"
+twitter_username        : ""
+facebook_username       : ""
 # Build settings
 markdown: kramdown
 theme: null
 plugins:
-  - rouge
-  - jekyll-feed
   - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+# Reading Files
+exclude:
+  - package.json
+  - package-lock
+  - README
+  - Gemfile
+  - node_modules
+  - gulpfile.js
+  - banner
+  - config
+  - Gemfile.lock
+  - gulpfile.config
+  - vendor # fix invalid date '0000-00-00' from template 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
@@ -32,3 +48,23 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+# head_scripts:
+#   - https://code.jquery.com/jquery-3.3.1.min.js
+#   - /assets/js/your-custom-head-script.js
+# incremental: true
+# Defaults
+words_per_minute         : 700.0
+paginate                 : 5
+paginate_path            : /page:num/
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: # true
+      share: true
+      related: true
