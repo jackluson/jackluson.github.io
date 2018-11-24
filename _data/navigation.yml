@@ -5,9 +5,9 @@ main:
     description: home
   - title: "Tags"
     url: /tags.html
-  - title: "Archives"
-    url: /posts/
-  - title: "About"
-    url: /about/
+  #- title: "Archives"
+   # url: /posts/
   - title: "Categories"
     url: /categories.html
+  - title: "About"
+    url: /about/

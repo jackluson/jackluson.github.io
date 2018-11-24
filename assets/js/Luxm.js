@@ -7,9 +7,8 @@ jQuery(document).ready(function ($) {
   $(window).on('scroll',
     function (event) {
       // console.log('eventdata', event.data.previousTop)
+      // console.log(headerHeight,bannerHeight)
       var currentTop = $(window).scrollTop();
-
-      //check if user is scrolling up by mouse or keyborad
       if (currentTop < this.previousTop) {
         //if scrolling up...
         if (currentTop > 0 && $('.masthead').hasClass('is-fixed')) {

@@ -1,11 +1,19 @@
 #-----------------------#
 #----my main configs----#
 #-----------------------#
+<<<<<<< HEAD
 title                   : Lux的个人博客
 email                   : luxuemin2108@gmail.com
 description             : Lux的个人博客---时间是最好的朋友,在合适的时间做合适的事
 baseurl                 : "/"
 url                     : "https://jackluson.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+=======
+title: Lux的个人博客
+email: luxuemin2108@gmail.com
+description: Lux的个人博客---时间是最好的朋友,在合适的时间做合适的事
+baseurl: "/"
+url: "https://jackluson.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+>>>>>>> master
 # timezone: Asia/Guangzhou
 
 # SNS settings
@@ -15,6 +23,7 @@ juejin_username         : "Luxm"
 twitter_username        : ""
 facebook_username       : ""
 # Build settings
+<<<<<<< HEAD
 markdown                : kramdown
 # theme                   : null
 
@@ -41,6 +50,10 @@ footer:
       icon: "fab fa-fw fa-instagram"
       url: "/blog"
 search                  : false
+=======
+markdown: kramdown
+theme: null
+>>>>>>> master
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
