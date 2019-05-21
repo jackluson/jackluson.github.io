@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout:     posts
 title:      "Example Post with Code Highlight"
 subtitle:   "CommonJS，RequireJS，SeaJS 归纳笔记"
 date:       2015-05-25

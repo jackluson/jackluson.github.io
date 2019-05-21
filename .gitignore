@@ -4,3 +4,4 @@ _site
 .bundle
 modules 
 node_modules
+.history/
